@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: TestRunner.Run
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.794 s <<< FAILURE! -- in TestRunner.Run
+validate user is able to add a new customer.Add customer feature -- Time elapsed: 4.563 s <<< FAILURE!
+java.lang.AssertionError: expected [Dashboard / nopCommerce administration] but found [Your store. Login]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at StepDefinition.CustomerStepDefinition.user_is_logged_in_and_on_home_page(CustomerStepDefinition.java:29)
+	at ✽.User is logged in and on home page(file:///Users/nirmith.shetty/IdeaProjects/CucumberFramework/Features/AddCustomer.feature:4)
+
