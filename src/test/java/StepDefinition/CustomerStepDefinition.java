@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import Driver.DriverManager;
+import Utils.ExcelReader;
 import Utils.PropertiesUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +11,7 @@ import org.testng.Assert;
 import pages.CustomerPage;
 import pages.DashBoardPage;
 import pages.LoginPage;
+import java.util.Map;
 
 public class CustomerStepDefinition {
     WebDriver driver = DriverManager.getInstance();
@@ -53,6 +55,15 @@ public class CustomerStepDefinition {
     public void user_fills_all_the_details() {
         customerPage.enterAllDetails();
     }
+
+
+    @Then("user fills all the details according the excel data for below mentioned {string} and {string} Sheet")
+    public void user_fills_all_the_details_according_the_excel_data_for_below_mentioned_and_sheet(String testCaseID, String sheetName) {
+        ExcelReader excelReader = new ExcelReader();
+        Map<String, String> data = excelReader.getExcelData(Integer.parseInt(testCaseID),sheetName);
+        customerPage.enterAllDetails(data);
+    }
+
     @Then("clicks on save")
     public void clicks_on_save() {
         customerPage.clickOnSave();

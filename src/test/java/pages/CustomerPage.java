@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Map;
+
 public class CustomerPage {
 
     WebDriver driver;
@@ -62,6 +64,17 @@ public class CustomerPage {
         emailField.sendKeys("HHww@gmail.com");
         passwordField.sendKeys("2849494");
         firstNameField.sendKeys("Nitmith");
+        LastNameField.sendKeys("ajdsjdas");
+        maleGenderRadioButton.click();
+        dob.sendKeys("06/07/1996");
+        companyName.sendKeys("XYZ");
+        taxExemptCheckbox.click();
+    }
+
+    public void enterAllDetails(Map<String, String> data){
+        emailField.sendKeys(data.get("Email"));
+        passwordField.sendKeys("2849494");
+        firstNameField.sendKeys(data.get("Name"));
         LastNameField.sendKeys("ajdsjdas");
         maleGenderRadioButton.click();
         dob.sendKeys("06/07/1996");
