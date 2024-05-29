@@ -3,19 +3,14 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.Map;
 
-public class CustomerPage {
+public class CustomerPage extends BasePage {
 
-    WebDriver driver;
-
-    public CustomerPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public CustomerPage(WebDriver driver) {
+        super(driver);
     }
-
 
     @FindBy(xpath = "//a[@href='/Admin/Customer/Create']")
     WebElement addNewButton;
@@ -61,6 +56,7 @@ public class CustomerPage {
 
 
     public void enterAllDetails(){
+        waitForElement(emailField);
         emailField.sendKeys("HHww@gmail.com");
         passwordField.sendKeys("2849494");
         firstNameField.sendKeys("Nitmith");

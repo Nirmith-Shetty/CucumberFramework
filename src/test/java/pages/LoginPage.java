@@ -3,16 +3,9 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
-    WebDriver driver;
-
-    public LoginPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
 
     //Page Factory
     @FindBy(id = "Email")
@@ -30,6 +23,10 @@ public class LoginPage {
 
     @FindBy(xpath = "//div[@class='message-error validation-summary-errors']")
     WebElement incorrectCredentialsErrorMsg;
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
 
     public void enterUsername(String email){
